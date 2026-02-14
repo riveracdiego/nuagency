@@ -6,12 +6,13 @@
     <title>Nube Agency | Portafolio Creativo</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap">  
     <link rel="stylesheet" href="css/style.css">
 </head>
 
  <div class="main-container">
     <header class="navbar">
-        <div class="logo">NuAgency<span>.</span></div>
+        <div class="logo">Nuagency<span>.</span></div>
         <div class="hamburger" id="hamburger">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -19,53 +20,62 @@
         </div>
         <nav class="nav-links" id="nav-links">
             <ul>
-                <li><a href="inicio">Inicio</a></li>
-                <li><a href="#galeria">Galería</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#galeria">Galería</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#eventos">Próximos eventos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-title"><span>NuAgency</span>.</h1>
+            <h1 class="hero-title"><span>Nuagency</span>.</h1>
             <p class="hero-subtitle">Un segundo para toda la vida.</p>
             <a href="#galeria" class="btn-scroll">Explorar Portafolio</a>
         </div>
     </section>
+
     <section class="about-section" id="sobre-mi">
+        <div class="about-parallax-bg"></div>
+        
         <div class="container">
             <div class="about-grid">
-                <div class="about-image">
-                    <img src=img/fotografo.jpg alt="Detrás de cámara - Nube Agency">
-                </div>
-                <div class="about-text">
+                <div class="about-text glass-effect">
                     <span class="about-subtitle">Sobre la Agencia</span>
                     <h2 class="about-title">Capturando la esencia de cada <span>instante</span>.</h2>
-                    <p>En <strong>NuAgency</strong>, creemos que la fotografía se trata de encontrar la perspectiva que nadie más ve. Nos especializamos en capturar alma, arquitectura y momentos sociales con una visión creativa y minimalista.</p>
+                    <p>En <strong>Nuagency</strong>, creemos que la fotografía se trata de encontrar la perspectiva que nadie más ve. Nos especializamos en capturar alma, arquitectura y momentos sociales con una visión creativa y minimalista.</p>
                     <p>Con más de 10 años explorando el lenguaje visual, nuestro objetivo es que cada imagen cuente una historia que no necesite palabras.</p>
                     <div class="about-stats">
-                        <div class="stat-item">
-                            <h3>+50</h3>
-                            <p>Proyectos</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>100%</h3>
-                            <p>Pasión</p>
+                        <div class="owner-signature">
+                            <div class="signature-content">
+                                <span class="signature-name">Viridiana </span> 
+                                <span class="owner-role">Fundadora & Directora Creativa </span>
+                            </div>
+                            <div class="signature-quote">
+                                <p>"La luz es el pincel, la cámara es el lienzo."</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+
     <main class="main-content" id="galeria">
         <div class="container">
             <header class="gallery-header">
-                <h1>Galería Nube</h1>
-                <p>Capturando momentos desde una perspectiva creativa</p>
+                <div class="header-wrapper">
+                    <h2 class="main-gallery-title">
+                        <span class="title-top">Galería</span>
+                        <span class="title-bottom">Nuagency<span>.</span></span>
+                    </h2>
+                    <p class="title-subtitle">Explorando el lenguaje visual a través del tiempo.</p>
+                    <p class="gallery-intro">Una imagen es un segundo que se niega a desaparecer. En <strong>Nuagency</strong> , transformamos lo efímero en un legado visual. Pasa, observa y descubre cómo convertimos un parpadeo en una obra de arte.</p>
+                </div>
             </header>
 
             <section class="portfolio-masonry">
@@ -129,8 +139,8 @@
         <div class="lightbox-container">
             <img id="lightbox-img" src="" alt="">
             <div class="lightbox-info">
-                <h2 id="lightbox-title"></h2>
-                <a href="#" id="category-link" class="btn-go">Ver Categoría Completa</a>
+                <h2 id="lightbox-title" class="title-bottom"></h2>
+                <a href="#" id="category-link"  class="btn-go" </a>Categoría Completa</a>
             </div>
         </div>
     </div>

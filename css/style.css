@@ -31,7 +31,7 @@ body {
     padding: 0 20px;
 }
 
-/* 3. NAVBAR */
+/* 3. NAVBAR - ACTUALIZADO ESTILO GLASS POR AGENCIA NUBE */
 .navbar {
     position: fixed;
     top: 0;
@@ -40,13 +40,18 @@ body {
     width: 100%;
     max-width: var(--container-width);
     height: 70px;
-    background-color: rgba(5, 5, 5, 0.95);
+    /* Efecto Glassmorphism */
+    background-color: rgba(18, 18, 18, 0.65); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* Soporte Safari */
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 40px;
     z-index: 1000;
-    border-bottom: 1px solid rgba(232, 90, 252, 0.3);
+    /* Borde más elegante para efecto cristal */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
 }
 
 .logo {
@@ -73,9 +78,34 @@ body {
     font-size: 0.9rem;
     font-weight: 600;
     transition: 0.3s;
+    position: relative; /* Necesario para la animación */
+    padding: 5px 0;
 }
 
-.nav-links a:hover { color: var(--accent-color); }
+/* Animación de selección (Línea que crece) */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.nav-links a:hover::after {
+    width: 100%; /* La línea se expande al pasar el mouse */
+}
+
+/* Mantiene el estado activo si decides agregar la clase 'active' vía JS más adelante */
+.nav-links a.active::after {
+    width: 100%;
+}
 
 /* 4. HERO SECTION */
 .hero {
@@ -108,13 +138,25 @@ body {
 
 .hero-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 3.5rem);
-    letter-spacing: 8px;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    letter-spacing: 10px;
     margin: 0;
+    text-shadow: .5px .5px 10px var(--accent-color);
 }
 
-.hero-title span { color: var(--accent-color); }
+.hero-title span { color: var(--text-white); }
 
+.hero-subtitle{
+        margin-top: 20px;
+        color: var(--accent-color);
+        letter-spacing: 3px;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        
+        padding-top: 15px;
+    
+}
 .btn-scroll {
     text-decoration: none;
     color: var(--text-white);
@@ -132,48 +174,60 @@ body {
     box-shadow: 0 0 15px rgba(232, 90, 252, 0.4);
 }
 
-/* 4.1 SECCIÓN BIOGRAFÍA (NUEVA) */
+/* 4.1 SECCIÓN BIOGRAFÍA (REDISEÑO PARALLAX & GLASS) */
 .about-section {
-    padding: 100px 0;
-    background-color: var(--bg-color);
+    position: relative;
+    padding: 120px 0;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin: 180px 0px;
+    /* Quitamos el bg-color sólido para que se vea la imagen de fondo */
+}
+
+/* Capa de fondo fija (Parallax) */
+.about-parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/fotografo.jpg'); /* Ruta de tu imagen */
+    background-attachment: fixed; /* El secreto del parallax */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: grayscale(100%) brightness(0.3); /* Look oscuro y elegante */
+    z-index: 1;
+}
+
+/* Contenedor sobre la imagen */
+.about-section .container {
+    position: relative;
+    z-index: 2;
+    max-width: var(--container-width);
 }
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* Mantenemos las 2 columnas en 1280px */
     gap: 60px;
     align-items: center;
 }
 
-.about-image {
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
+/* El bloque de texto ahora es una tarjeta Glass */
+.about-text {
+    background: rgba(18, 18, 18, 0.7); /* Tu --card-bg con transparencia */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 5px solid var(--accent-color); /* Detalle de marca */
 }
 
-.about-image img {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    display: block;
-    filter: grayscale(40%);
-    transition: 0.5s;
-}
-
-.about-image:hover img {
-    filter: grayscale(0%);
-}
-
-/* Marco decorativo para la foto */
-.about-image::after {
-    content: '';
-    position: absolute;
-    inset: 15px;
-    border: 2px solid var(--accent-color);
-    border-radius: 10px;
-    pointer-events: none;
-}
-
+/* Mantenemos tus estilos de texto intactos */
 .about-subtitle {
     color: var(--accent-color);
     text-transform: uppercase;
@@ -187,6 +241,7 @@ body {
     font-size: 2.5rem;
     margin: 15px 0 25px;
     line-height: 1.2;
+    color: var(--text-white);
 }
 
 .about-title span { color: var(--accent-color); }
@@ -197,24 +252,152 @@ body {
     margin-bottom: 20px;
 }
 
-.about-stats {
+owner-signature {
+    margin-top: 50px;
     display: flex;
-    gap: 40px;
-    margin-top: 30px;
+    flex-direction: column;
+    gap: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
 }
 
-.stat-item h3 {
+.signature-name {
+    display: block;
+    font-family: "Ballet", cursive;/* O una tipografía Script si la importas */
+    font-size: 2rem;
     color: var(--text-white);
-    font-size: 1.8rem;
-    margin: 0;
+    font-style: italic;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, var(--text-white), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+   
 }
-
-.stat-item p {
-    font-size: 0.9rem;
-    margin: 0;
+.signature-name:hover {
+    
+    filter: drop-shadow(0 0 10px rgba(232, 90, 252, 0.8));
+    transition: 0.3s ease;
+    /*cursor:url('../img/cursorBeso.png');*/
+}
+.owner-role {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
     color: var(--accent-color);
+    margin-top: 5px;
+    font-weight: 700;
 }
 
+.signature-quote {
+    border-left: 2px solid var(--accent-color);
+    padding-left: 15px;
+    margin-top: 10px;
+}
+
+.signature-quote p {
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--text-gray) !important;
+    margin: 0 !important;
+}
+
+
+/*4.2 Título de la galeria*/
+
+.gallery-header {
+    padding: 100px 0 60px;
+    text-align: center;
+}
+
+.header-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+.main-gallery-title {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 0.85;
+}
+
+/* La palabra Galería: Elegante y ligera */
+.title-top {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 400;
+    letter-spacing: 12px;
+    color: var(--text-gray);
+    margin-left: 10px;
+    opacity: 0.8;
+}
+
+/* La palabra Nuagency: Fuerte y protagonista */
+.title-bottom {
+    font-size: clamp(3rem, 10vw, 4.5rem);
+    font-weight: 800;
+    color: var(--text-white);
+    letter-spacing: -2px;
+}
+
+/* El punto con tu color de acento */
+.title-bottom span {
+    color: var(--accent-color);
+    text-shadow: 0 0 20px rgba(232, 90, 252, 0.6);
+}
+
+/* Subtítulo decorativo */
+.title-subtitle {
+    margin-top: 20px;
+    color: var(--text-gray);
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: inline-block;
+    padding-top: 15px;
+}
+
+.title-bottom:hover span {
+    text-shadow: 0 0 40px rgba(232, 90, 252, 1);
+    transition: 0.4s ease;
+}
+
+/* Estilo para el párrafo creativo */
+.gallery-intro {
+    color: var(--text-gray);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 700px; /* Evita que las líneas sean muy largas en 1280px */
+    margin: 30px auto 0; /* Lo centra y le da espacio respecto al título */
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+/* Resalte sutil para la palabra NuAgency dentro del párrafo */
+.gallery-intro strong {
+    color: var(--text-white);
+    font-weight: 600;
+    
+}
+
+/* Ajuste al subtítulo para que no choque con el párrafo */
+.title-subtitle {
+    margin-top: 15px;
+    color: var(--accent-color); /* Usamos tu color de acento aquí para guiar la vista */
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 5px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    display: block;
+}
 /* 5. GALERÍA MASONRY */
 .main-content {
     padding: 80px 0;
@@ -242,6 +425,23 @@ body {
 }
 
 .portfolio-item.tall { grid-row: span 2; }
+
+
+
+
+.btn-go{
+    text-decoration: none;
+    display: flex;
+    color: var(--text-white);
+    border: 1px solid var(--accent-color);
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    justify-content: center;
+    margin-top: 20px;
+    transition: 0.3s;
+
+}
 
 @media (min-width: 768px) {
     .portfolio-item.wide { grid-column: span 2; }
@@ -360,20 +560,87 @@ body {
 .prev { left: 40px; }
 .next { right: 40px; }
 
-/* 8. RESPONSIVO */
+/* 8. RESPONSIVO - CONSOLIDADO POR AGENCIA NUBE */
 @media (max-width: 768px) {
-    .navbar { left: 0; transform: none; max-width: 100%; padding: 0 20px; }
-    .hero { height: 50vh; border-radius: 0; margin-top: 70px; }
+    /* Navbar y Navegación */
+    .navbar { 
+        left: 0; 
+        transform: none; 
+        max-width: 100%; 
+        padding: 0 20px; 
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        background: rgba(18, 18, 18, 0.8); /* Estilo Glass Nube */
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        width: 100%;
+        height: 100vh;
+        transition: 0.4s;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        z-index: 999;
+    }
     
-    /* Responsivo Biografía */
+    .nav-links.active { right: 0; }
+    
+    .nav-links ul { 
+        flex-direction: column; 
+        align-items: center; 
+        padding-top: 50px; 
+        gap: 25px;
+    }
+
+    .hamburger { 
+        display: flex; 
+        flex-direction: column; 
+        gap: 5px; 
+        cursor: pointer; 
+    }
+    
+    .bar { 
+        width: 30px; 
+        height: 3px; 
+        background-color: var(--accent-color); 
+    }
+
+    /* Hero */
+    .hero { 
+        height: 50vh; 
+        border-radius: 0; 
+        margin-top: 70px; 
+    }
+
+    /* Biografía con Parallax Adaptado */
+    .about-section {
+        padding: 60px 0;
+    }
+
+    .about-parallax-bg {
+        background-attachment: scroll; /* Importante para fluidez en móviles */
+    }
+
     .about-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
         text-align: center;
     }
-    .about-image img { height: 350px; }
-    .about-stats { justify-content: center; }
 
+    .about-text {
+        padding: 30px 20px;
+        margin: 0;
+        border-left: none;
+        border-top: 4px solid var(--accent-color); /* Cambiamos borde lateral por superior */
+    }
+
+    .about-stats { 
+        justify-content: center; 
+        gap: 20px;
+    }
+
+    /* Lightbox y Botones */
     .lightbox-container {
         width: 90vw;
         height: 50vh; 
@@ -383,22 +650,7 @@ body {
         padding: 10px 15px;
         font-size: 1.2rem;
     }
+
     .prev { left: 15px; }
     .next { right: 15px; }
-
-    .nav-links {
-        position: fixed;
-        right: -100%;
-        top: 70px;
-        background: rgba(18, 18, 18, 0.98);
-        width: 100%;
-        height: 100vh;
-        transition: 0.4s;
-    }
-    
-    .nav-links.active { right: 0; }
-    .nav-links ul { flex-direction: column; align-items: center; padding-top: 50px; }
-    
-    .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
-    .bar { width: 30px; height: 3px; background-color: var(--accent-color); }
 }
