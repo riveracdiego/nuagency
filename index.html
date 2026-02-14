@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nube Agency | Portafolio Creativo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+ <div class="main-container">
+    <header class="navbar">
+        <div class="logo">NuAgency<span>.</span></div>
+        <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <nav class="nav-links" id="nav-links">
+            <ul>
+                <li><a href="inicio">Inicio</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#eventos">Próximos eventos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title"><span>NuAgency</span>.</h1>
+            <p class="hero-subtitle">Un segundo para toda la vida.</p>
+            <a href="#galeria" class="btn-scroll">Explorar Portafolio</a>
+        </div>
+    </section>
+    <section class="about-section" id="sobre-mi">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src=img/fotografo.jpg alt="Detrás de cámara - Nube Agency">
+                </div>
+                <div class="about-text">
+                    <span class="about-subtitle">Sobre la Agencia</span>
+                    <h2 class="about-title">Capturando la esencia de cada <span>instante</span>.</h2>
+                    <p>En <strong>NuAgency</strong>, creemos que la fotografía se trata de encontrar la perspectiva que nadie más ve. Nos especializamos en capturar alma, arquitectura y momentos sociales con una visión creativa y minimalista.</p>
+                    <p>Con más de 10 años explorando el lenguaje visual, nuestro objetivo es que cada imagen cuente una historia que no necesite palabras.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <h3>+50</h3>
+                            <p>Proyectos</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>100%</h3>
+                            <p>Pasión</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main class="main-content" id="galeria">
+        <div class="container">
+            <header class="gallery-header">
+                <h1>Galería Nube</h1>
+                <p>Capturando momentos desde una perspectiva creativa</p>
+            </header>
+
+            <section class="portfolio-masonry">
+                <div class="portfolio-item wide" data-category="familia">
+                    <img src="/img/NuFamilianavidadbebe.jpg" alt="Familia">
+                    <div class="item-overlay"><h3>Sesiones Familiares</h3></div>
+                </div>
+                
+                <div class="portfolio-item tall" data-category="parejas">
+                    <img src="/img/pareja.jpg" alt="Parejas">
+                    <div class="item-overlay"><h3>Sesiones de Pareja</h3></div>
+                </div>
+               
+
+                <div class="portfolio-item" data-category="eventos-sociales">
+                    <img src="/img/NuBoda.jpg" alt="Sociales">
+                    <div class="item-overlay"><h3>Eventos Sociales</h3></div>
+                </div>
+
+                <div class="portfolio-item tall" data-category="modelaje">
+                    <img src="/img/NuBailarina.jpg" alt="Modelaje">
+                    <div class="item-overlay"><h3>Modelaje</h3></div>
+                </div>
+
+                <div class="portfolio-item wide" data-category="alimentos">
+                    <img src="/img/NuFresas.jpg" alt="Alimentos">
+                    <div class="item-overlay"><h3>Alimentos</h3></div>
+                </div>
+
+                <div class="portfolio-item" data-category="productos">
+                    <img src="/img/accesoriosMario.jpg" alt="Productos">
+                    <div class="item-overlay"><h3>Productos</h3></div>
+                </div>
+
+                <div class="portfolio-item tall" data-category="mascotas">
+                    <img src="/img/NuMascota 3.jpg" alt="Mascotas">
+                    <div class="item-overlay"><h3>Mascotas</h3></div>
+                </div>
+               
+
+                <div class="portfolio-item" data-category="especiales">
+                    <img src="/img/museoMisterioso.jpg" alt="Especiales">
+                    <div class="item-overlay"><h3>Eventos Especiales</h3></div>
+                </div>
+                <div class="portfolio-item wide" data-category="arquitectura">
+                    <img src="img/arquitectura .jpg" alt="Arquitectura">
+                    <div class="item-overlay"><h3>Arquitectura</h3></div>
+                </div>
+               
+              
+            </section>
+        </div> 
+        </main>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox" id="close-lightbox" >&times;</span>
+
+        <button class="nav-btn prev" id="prev-btn">&#10094;</button>
+    <button class="nav-btn next" id="next-btn">&#10095;</button>
+
+        <div class="lightbox-container">
+            <img id="lightbox-img" src="" alt="">
+            <div class="lightbox-info">
+                <h2 id="lightbox-title"></h2>
+                <a href="#" id="category-link" class="btn-go">Ver Categoría Completa</a>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="js/main.js"></script>
+</body>
+</html>

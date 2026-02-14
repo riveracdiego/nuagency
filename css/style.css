@@ -1,0 +1,404 @@
+/* 1. VARIABLES Y CONFIGURACIÓN BASE */
+:root {
+    --bg-color: #050505;
+    --card-bg: #121212;
+    --accent-color: rgb(232, 90, 252);
+    --text-white: #f5f5f5;
+    --text-gray: #bbbbbb;
+    --container-width: 1280px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html { 
+    scroll-behavior: smooth; 
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-white);
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* 2. CONTENEDORES */
+.container, .main-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 3. NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: var(--container-width);
+    height: 70px;
+    background-color: rgba(5, 5, 5, 0.95);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(232, 90, 252, 0.3);
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.logo span { color: var(--accent-color); }
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover { color: var(--accent-color); }
+
+/* 4. HERO SECTION */
+.hero {
+    height: 60vh;
+    width: 100%;
+    margin-top: 100px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 15px;
+    overflow: hidden;
+    background: url('../img/home-banner.webp') no-repeat center center;
+    background-size: cover;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    letter-spacing: 8px;
+    margin: 0;
+}
+
+.hero-title span { color: var(--accent-color); }
+
+.btn-scroll {
+    text-decoration: none;
+    color: var(--text-white);
+    border: 1px solid var(--accent-color);
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn-scroll:hover {
+    background: var(--accent-color);
+    box-shadow: 0 0 15px rgba(232, 90, 252, 0.4);
+}
+
+/* 4.1 SECCIÓN BIOGRAFÍA (NUEVA) */
+.about-section {
+    padding: 100px 0;
+    background-color: var(--bg-color);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(40%);
+    transition: 0.5s;
+}
+
+.about-image:hover img {
+    filter: grayscale(0%);
+}
+
+/* Marco decorativo para la foto */
+.about-image::after {
+    content: '';
+    position: absolute;
+    inset: 15px;
+    border: 2px solid var(--accent-color);
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.about-subtitle {
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.about-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    margin: 15px 0 25px;
+    line-height: 1.2;
+}
+
+.about-title span { color: var(--accent-color); }
+
+.about-text p {
+    color: var(--text-gray);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.about-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.stat-item h3 {
+    color: var(--text-white);
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.stat-item p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--accent-color);
+}
+
+/* 5. GALERÍA MASONRY */
+.main-content {
+    padding: 80px 0;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.portfolio-masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: 250px; 
+    grid-auto-flow: dense; 
+    gap: 20px;
+}
+
+.portfolio-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: var(--card-bg);
+}
+
+.portfolio-item.tall { grid-row: span 2; }
+
+@media (min-width: 768px) {
+    .portfolio-item.wide { grid-column: span 2; }
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent, rgba(232, 90, 252, 0.8));
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .item-overlay { opacity: 1; }
+.portfolio-item:hover img { transform: scale(1.1); }
+
+/* 6. LIGHTBOX BASE Y SUAVIZADO */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0); 
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    transition: background 0.4s ease;
+    backdrop-filter: blur(5px);
+}
+
+.lightbox.active {
+    background: rgba(0, 0, 0, 0.95);
+}
+
+.lightbox-container {
+    position: relative;
+    z-index: 2005;
+    width: 85vw;
+    max-width: 1000px;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    opacity: 0;
+    transform: scale(0.85);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.lightbox.active .lightbox-container img {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* --- BOTÓN DE CIERRE --- */
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--accent-color);
+    font-size: 60px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2020;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.close-lightbox:hover {
+    color: white;
+    transform: rotate(90deg) scale(1.1);
+}
+
+/* 7. FLECHAS DE NAVEGACIÓN */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(18, 18, 18, 0.6);
+    color: var(--text-white);
+    border: 1px solid var(--accent-color);
+    font-size: 2rem;
+    padding: 15px 22px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 2015;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.nav-btn:hover {
+    background: var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-color);
+    color: white;
+}
+
+.prev { left: 40px; }
+.next { right: 40px; }
+
+/* 8. RESPONSIVO */
+@media (max-width: 768px) {
+    .navbar { left: 0; transform: none; max-width: 100%; padding: 0 20px; }
+    .hero { height: 50vh; border-radius: 0; margin-top: 70px; }
+    
+    /* Responsivo Biografía */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    .about-image img { height: 350px; }
+    .about-stats { justify-content: center; }
+
+    .lightbox-container {
+        width: 90vw;
+        height: 50vh; 
+    }
+
+    .nav-btn {
+        padding: 10px 15px;
+        font-size: 1.2rem;
+    }
+    .prev { left: 15px; }
+    .next { right: 15px; }
+
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        background: rgba(18, 18, 18, 0.98);
+        width: 100%;
+        height: 100vh;
+        transition: 0.4s;
+    }
+    
+    .nav-links.active { right: 0; }
+    .nav-links ul { flex-direction: column; align-items: center; padding-top: 50px; }
+    
+    .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
+    .bar { width: 30px; height: 3px; background-color: var(--accent-color); }
+}
