@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nube Agency | Portafolio Creativo</title>
+    <title>Nuagency | Portafolio Creativo</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap">  
     <link rel="stylesheet" href="css/style.css">
 </head>
-
- <div class="main-container">
+<!-- Barra de navegación -->
+ <div class="main-container" >
     <header class="navbar">
         <div class="logo">Nuagency<span>.</span></div>
         <div class="hamburger" id="hamburger">
@@ -24,21 +24,21 @@
                 <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#galeria">Galería</a></li>
                 <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#eventos">Próximos eventos</a></li>
+                <li><a href="proximosEventos.html">Próximos eventos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
-
-    <section class="hero">
+<!-- Hero -->
+    <section class="hero" id="inicio">
         <div class="hero-content">
             <h1 class="hero-title"><span>Nuagency</span>.</h1>
             <p class="hero-subtitle">Un segundo para toda la vida.</p>
             <a href="#galeria" class="btn-scroll">Explorar Portafolio</a>
         </div>
     </section>
-
-    <section class="about-section" id="sobre-mi">
+<!-- Nosotros-->
+    <section class="about-section" id="nosotros">
         <div class="about-parallax-bg"></div>
         
         <div class="container">
@@ -51,11 +51,13 @@
                     <div class="about-stats">
                         <div class="owner-signature">
                             <div class="signature-content">
-                                <span class="signature-name">Viridiana </span> 
+                                <span class="signature-name">Viridiana  Cortés</span> 
+                                <img  src="/img/besoBlanco.png" alt="imagen de beso">
                                 <span class="owner-role">Fundadora & Directora Creativa </span>
                             </div>
                             <div class="signature-quote">
                                 <p>"La luz es el pincel, la cámara es el lienzo."</p>
+                                
                             </div>
                         </div>
                     </div>
@@ -64,7 +66,7 @@
         </div>
     </section>
 
-
+<!-- Galería -->
     <main class="main-content" id="galeria">
         <div class="container">
             <header class="gallery-header">
@@ -130,6 +132,76 @@
         </div> 
         </main>
 
+
+<!-- Servicios-->
+
+<section class="services-section" id="servicios">
+    <div class="container">
+        <header class="gallery-header">
+            <div class="header-wrapper">
+                <h2 class="main-gallery-title">
+                    <span class="title-top">Nuestros</span>
+                    <span class="title-bottom">Servicios<span>.</span></span>
+                </h2>
+                <p class="title-subtitle">Soluciones visuales de alto impacto</p>
+                <p class="gallery-intro">No solo tomamos fotografías; diseñamos la estética de tu mensaje. En <strong>Nuagency</strong> combinamos técnica avanzada con una visión artística disruptiva.</p>
+            </div>
+        </header>
+
+        <div class="services-grid">
+            <article class="service-card glass-effect">
+                <div class="service-number">01</div>
+                <h3>Comercial & Producto</h3>
+                <p>Imágenes de alta gama diseñadas para catálogos y e-commerce que elevan el valor percibido de tu marca.</p>
+                <ul class="service-list">
+                    <li>Packshot publicitario</li>
+                    <li>Bodegones creativos</li>
+                    <li>Optimización para Web</li>
+                </ul>
+            </article>
+
+            <article class="service-card glass-effect">
+                <div class="service-number">02</div>
+                <h3>Retrato & Branding</h3>
+                <p>Capturamos la identidad de profesionales y equipos con un lenguaje visual moderno y auténtico.</p>
+                <ul class="service-list">
+                    <li>Headshots ejecutivos</li>
+                    <li>Editorial de moda</li>
+                    <li>Personal Branding</li>
+                </ul>
+            </article>
+
+            <article class="service-card glass-effect">
+                <div class="service-number">03</div>
+                <h3>Eventos Sociales</h3>
+                <p>Documentamos momentos irrepetibles con un enfoque cinematográfico y una edición impecable.</p>
+                <ul class="service-list">
+                    <li>Bodas y Galas</li>
+                    <li>Aftermovies de marca</li>
+                    <li>Cobertura en vivo</li>
+                </ul>
+            </article>
+
+            <article class="service-card glass-effect">
+                <div class="service-number">04</div>
+                <h3>Post-Producción</h3>
+                <p>El laboratorio digital donde perfeccionamos cada detalle, color y textura de tus imágenes.</p>
+                <ul class="service-list">
+                    <li>Retoque High-End</li>
+                    <li>Color Grading</li>
+                    <li>Fotomontaje digital</li>
+                </ul>
+            </article>
+        </div>
+
+        <div class="services-footer">
+            <a href="#contacto" class="btn-scroll">Solicitar Presupuesto</a>
+        </div>
+    </div>
+</section>
+
+<!-- Próximos eventos-->
+
     <div id="lightbox" class="lightbox">
         <span class="close-lightbox" id="close-lightbox" >&times;</span>
 
@@ -140,11 +212,36 @@
             <img id="lightbox-img" src="" alt="">
             <div class="lightbox-info">
                 <h2 id="lightbox-title" class="title-bottom"></h2>
-                <a href="#" id="category-link"  class="btn-go" </a>Categoría Completa</a>
+                <a href="#" id="category-link"  class="btn-go">Categoría Completa</a>
             </div>
         </div>
     </div>
 </div>
     <script src="js/main.js"></script>
+
+    <footer class="main-footer" id="contacto">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <div class="logo">Nuagency<span>.</span></div>
+                <p>Un egundo para toda la vida.</p>
+            </div>
+    
+            <div class="footer-social">
+                <span class="social-title">Sigue nuestra visión</span>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/NuagencyMexico/" class="glass-icon icon-fb" target="_blank" aria-label="Facebook">
+                        <span>f</span>
+                    </a>
+                    <a href="https://www.instagram.com/nuagency_mexico/" class="glass-icon icon-ig" target="_blank" aria-label="Instagram">
+                        <span class="ig-inner"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nuagency. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>

@@ -21,8 +21,32 @@ hamburger.addEventListener('click', () => {
 });
 
 document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', function() {
+        
+        document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+       
+        this.classList.add('active');
+        
         navLinks.classList.remove('active');
+        hamburger.classList.remove('is-open');
+    });
+});
+window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('section, main'); // Selecciona tus secciones
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 70) { // 70 es la altura de tu navbar
+            current = section.getAttribute('id');
+        }
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href').includes(current)) {
+            a.classList.add('active');
+        }
     });
 });
 
@@ -38,7 +62,7 @@ const updateLightboxContent = (index) => {
     setTimeout(() => {
         lightboxImg.src = imgSrc;
         lightboxTitle.textContent = categoryName.charAt(0).toUpperCase() + categoryName.slice(1);
-        categoryLink.href = `${categoryName}.html`;
+        categoryLink.href = `./${categoryName}.html`;
         lightboxImg.style.opacity = '1';
     }, 150);
     
