@@ -111,7 +111,7 @@ body {
 .hero {
     height: 60vh;
     width: 100%;
-    margin-top: 100px;
+    margin-top: 70px;
     position: relative;
     display: flex;
     align-items: center;
@@ -156,6 +156,57 @@ body {
         
         padding-top: 15px;
     
+}
+/*Hero Small*/
+/* --- ESTILOS ESPECÍFICOS: PÁGINA EVENTOS --- */
+
+/* Hero Reducido: No choca con .hero porque usamos la doble clase */
+.hero.hero-small {
+    height: 40vh; /* Altura compacta */
+    min-height: 300px;
+    margin-top: 70px;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+                url('../img/nubeBanner.png') no-repeat center center;
+    background-size: cover;
+    border-radius: 20px;
+    margin-left: 20px;  /* Pequeño margen para que respire dentro del container */
+    margin-right: 20px;
+}
+
+.hero-small .hero-title {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    text-shadow: 0 0 20px rgba(232, 90, 252, 0.5);
+}
+
+/* Grid de Eventos mejorada */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 40px 0 100px;
+}
+
+/* Tarjetas con toque Neón sutil */
+.event-card {
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.event-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 25px rgba(232, 90, 252, 0.2);
+    transform: translateY(-5px);
+}
+
+/* La tarjeta destacada (Navidad) tiene un resplandor más fuerte */
+.event-card.featured {
+    background: linear-gradient(145deg, rgba(18, 18, 18, 0.9), rgba(232, 90, 252, 0.05));
+    border-color: var(--accent-color);
 }
 .btn-scroll {
     text-decoration: none;
