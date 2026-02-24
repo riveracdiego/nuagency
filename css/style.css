@@ -368,6 +368,23 @@ body {
 
 
 /*4.2 Título de la galeria*/
+/* 4.2 HERO REDUCIDO (Para páginas internas como Eventos o Parejas) */
+.hero.hero-small {
+    height: 35vh; /* Mucho más pequeño que el de la landing */
+    min-height: 280px;
+    margin-top: 70px; /* Margen para la navbar fija */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.0)), 
+                      url('../img/nubeBanner.png'); /* Configuración de imagen */
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+}
+
+.hero-small .hero-title {
+    font-size: clamp(3rem, 5vw, 3.5rem); /* Título más discreto */
+    letter-spacing: 5px;
+    text-shadow: 0 0 15px rgba(232, 90, 252, 0.4);
+}
 
 .gallery-header {
     padding: 100px 0 60px;
@@ -660,13 +677,16 @@ body {
         display: flex; 
         flex-direction: column; 
         gap: 5px; 
-        cursor: pointer; 
+        cursor: pointer;
+        z-index: 1100; 
+        padding: 10px;
     }
     
     .bar { 
-        width: 30px; 
+        width: 25px; 
         height: 3px; 
         background-color: var(--accent-color); 
+        transition: 0.3s;
     }
 
     /* Hero */
