@@ -163,7 +163,7 @@ body {
 /*Hero Small*/
 /* --- ESTILOS ESPECÍFICOS: PÁGINA EVENTOS --- */
 
-/* Hero Reducido: No choca con .hero porque usamos la doble clase */
+/* Hero Reducido: No choca con .hero */
 .hero.hero-small {
     height: 40vh; /* Altura compacta */
     min-height: 300px;
@@ -172,7 +172,7 @@ body {
                 url('../img/nubeBanner.png') no-repeat center center;
     background-size: cover;
     border-radius: 20px;
-    margin-left: 20px;  /* Pequeño margen para que respire dentro del container */
+    margin-left: 20px;  /* Pequeño margen del container */
     margin-right: 20px;
 }
 
@@ -189,7 +189,7 @@ body {
     padding: 40px 0 100px;
 }
 
-/* Tarjetas con toque Neón sutil */
+/* Tarjetas con toque Neón  */
 .event-card {
     padding: 40px;
     border-radius: 15px;
@@ -237,7 +237,7 @@ body {
     align-items: center;
     overflow: hidden;
     margin: 180px 0px;
-    /* Quitamos el bg-color sólido para que se vea la imagen de fondo */
+ 
 }
 
 /* Capa de fondo fija (Parallax) */
@@ -247,7 +247,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../img/fotografo.jpg'); /* Ruta de tu imagen */
+    background-image: url('../img/fotografo.jpg'); 
     background-attachment: fixed; /* El secreto del parallax */
     background-position: center;
     background-repeat: no-repeat;
@@ -281,7 +281,7 @@ body {
     border-left: 5px solid var(--accent-color); /* Detalle de marca */
 }
 
-/* Mantenemos tus estilos de texto intactos */
+
 .about-subtitle {
     color: var(--accent-color);
     text-transform: uppercase;
@@ -325,7 +325,7 @@ body {
 
 .signature-name {
     display: block;
-    font-family: "Ballet", cursive;/* O una tipografía Script si la importas */
+    font-family: "Ballet", cursive;
     font-size: 2rem;
     color: var(--text-white);
     font-style: italic;
@@ -377,7 +377,7 @@ body {
     min-height: 280px;
     margin-top: 70px; /* Margen para la navbar fija */
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.0)), 
-                      url('../img/nubeBanner.png'); /* Configuración de imagen */
+                      url('../img/nubeBanner.png'); 
     background-size: cover;
     background-position: center;
     border-radius: 15px;
@@ -643,7 +643,7 @@ body {
 .prev { left: 40px; }
 .next { right: 40px; }
 
-/* 8. RESPONSIVO - CONSOLIDADO POR AGENCIA NUBE */
+/* 8. RESPONSIVO -  */
 @media (max-width: 767px) {
     /* Navbar y Navegación */
     .navbar { 
